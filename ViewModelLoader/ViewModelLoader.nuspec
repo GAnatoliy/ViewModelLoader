@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ViewModelLoader</id>
-    <version>1.0.0</version>
+    <version>$version$</version>
     <authors>Anatoliy Guts</authors>
     <owners>Anatoliy Guts</owners>
     <licenseUrl>https://raw.githubusercontent.com/GAnatoliy/ViewModelLoader/master/LICENSE.md</licenseUrl>
