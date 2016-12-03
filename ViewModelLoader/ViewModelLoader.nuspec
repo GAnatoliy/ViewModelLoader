@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ViewModelLoader</id>
+    <version>1.0.0</version>
+    <authors>Anatoliy Guts</authors>
+    <owners>Anatoliy Guts</owners>
+    <licenseUrl>https://raw.githubusercontent.com/GAnatoliy/ViewModelLoader/master/LICENSE.md</licenseUrl>
+	<projectUrl>https://github.com/GAnatoliy/ViewModelLoader</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Library for loading related data to view models (asp.net web api)</description>
+    <copyright>Copyright 2015</copyright>
+    <tags>AspNet WebApi AspNetWebApi</tags>
+    <dependencies>
+		<dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.3" />
+		<dependency id="Microsoft.AspNet.WebApi.Core" version="5.2.3" />
+    </dependencies>
+  </metadata>
+</package>
