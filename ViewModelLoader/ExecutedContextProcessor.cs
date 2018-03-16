@@ -58,8 +58,12 @@ namespace ViewModelLoader
             }
 
             // Check if any data should be loaded.
-            var parameters = actionExecutedContext.Request.GetQueryNameValuePairs().ToDictionary(p => p.Key, p => p.Value);
-            if (!parameters.ContainsKey(FIELDS_PARAMETER)) {
+            var fieldsString = actionExecutedContext.Request.GetQueryNameValuePairs()
+                .Where(p => p.Key.Equals(FIELDS_PARAMETER, StringComparison.OrdinalIgnoreCase))
+                .Select(p => p.Value)
+                .FirstOrDefault();
+
+            if (string.IsNullOrEmpty(fieldsString)) {
                 return;
             }
 
@@ -73,7 +77,7 @@ namespace ViewModelLoader
             // Get data before process loads that prevent duplication call in case of few matched loaders.
             if (matchedLoaders.Count() != 0) {
                 data = await dataProvider(actionExecutedContext);
-                fields = parameters[FIELDS_PARAMETER].Replace(" ", "").Split(',');
+                fields = fieldsString.Replace(" ", "").Split(',');
             }
             foreach (var loader in matchedLoaders) {
                 // Process list of view models.
