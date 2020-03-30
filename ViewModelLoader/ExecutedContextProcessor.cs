@@ -52,7 +52,7 @@ namespace ViewModelLoader
                 return;
             }
 
-            var resultType = objectContent.DeclaredType;
+            var resultType = objectContent.Value?.GetType();
             // Detect type of elements if returned value is list.
             var list = objectContent.Value as IList;
             if (list != null) {
@@ -63,6 +63,10 @@ namespace ViewModelLoader
                 }
 
                 resultType = genericArguments.Single();
+            }
+
+            if (resultType == null) {
+                return;
             }
 
             // Check if any data should be loaded.
